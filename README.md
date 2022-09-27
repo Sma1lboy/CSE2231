@@ -1,2 +1,2 @@
-# CSE2221
+# CSE2231
 Project, homework and midterm review
