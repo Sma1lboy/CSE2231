@@ -14,12 +14,12 @@ Each program type has a <span style="color:Red">**mathmatical type**</span>.  th
 | char | character |
 | int | Integer (-2147483648 through 2147483647) |
 |double|real (about ±10±308, 15 significant digits)|
-|String|string of character|
+|String|string of character Rep: <>|
 |NaturalNumber|Integer (non-negative)|
-|Queue\<T>|string of T|
-|Stack\<T>|string of T|
-|Sequence\<T>|stirng of T|
-|Set\<T>|finite set of T|
+|Queue\<T>|string of T Rep: <>|
+|Stack\<T>|string of T Rep: <>|
+|Sequence\<T>|stirng of T Rep: <>|
+|Set\<T>|finite set of T  Rep:  **{ }** or by **empty_set**|
 |Map\<K,V>|finite set of (K,V) (with function property) |
 |BinaryTree<T> | binary tree of T|
 |SortingMachine|ordered triple (a.k.a. three-tuple): a boolean, a binary relation on T, and a finite multiset of T.|
@@ -27,6 +27,16 @@ Each program type has a <span style="color:Red">**mathmatical type**</span>.  th
 **\***Vacuously True:  p => q where p= false q = false, then p => q is true.
 
 string of T : \<t1, t2, t3>
+
+set of T: {1,2, 3}
+
+Entries of a String:  The set whose elements are exactly the entries of a string s (i.e., the string’s entries without duplicates and ignoring order) is denoted by entries(s)
+
+e.g. : entries(< 2, 2, 2, 1 >) = { 1, 2 }, entries(< >) = { }
+
+
+
+
 
 # Abstract Classes
 
