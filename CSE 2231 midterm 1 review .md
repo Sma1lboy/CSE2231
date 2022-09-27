@@ -108,11 +108,11 @@ There is constructorTest and constructorRef, if there is reference implementatio
 
 ### Isolating This Change Point
 
-<img src="/Users/jacksonchen/Library/Application Support/typora-user-images/image-20220924204004644.png" alt="image-20220924204004644" style="zoom: 33%;" />
+<img src="https://raw.githubusercontent.com/Sma1lboy/CSE2231/main/Assists/imgs/image-20220924204004644.png" alt="image-20220924204004644" style="zoom: 33%;" />
 
 makes the test cases class become abstract class, then we could implement our constructorTest and constructorRef method in the child Class. We could test different initial constructor by create different child class of test cases class.
 
-<img src="/Users/jacksonchen/Library/Application Support/typora-user-images/image-20220924204251678.png" alt="image-20220924204251678" style="zoom:33%;" />
+<img src="https://raw.githubusercontent.com/Sma1lboy/CSE2231/main/Assists/imgs/image-20220924204251678.png" alt="image-20220924204251678" style="zoom:33%;" />
 
 ### protected and Abstract method keyword
 
@@ -196,7 +196,7 @@ On an **update**, the latest version from the repository often can be **merged**
 
 ​	note: merge the file
 
-<img src="/Users/jacksonchen/Library/Application Support/typora-user-images/image-20220924213559780.png" alt="image-20220924213559780" style="zoom: 33%;" />
+<img src="https://raw.githubusercontent.com/Sma1lboy/CSE2231/main/Assists/imgs/image-20220924213559780.png" alt="image-20220924213559780" style="zoom: 33%;" />
 
 check the progress of update and commit on the slide [version control][ppt_version_control]
 
@@ -216,13 +216,13 @@ Some designs will make the code for the methods you need to write:
 
  – More efficient
 
-![image-20220924214309879](/Users/jacksonchen/Library/Application Support/typora-user-images/image-20220924214309879.png)
+![image-20220924214309879](https://raw.githubusercontent.com/Sma1lboy/CSE2231/main/Assists/imgs/image-20220924214309879.png)
 
 
 
 
 
-![image-20220924214320470](/Users/jacksonchen/Library/Application Support/typora-user-images/image-20220924214320470.png)
+![image-20220924214320470](https://raw.githubusercontent.com/Sma1lboy/CSE2231/main/Assists/imgs/image-20220924214320470.png)
 
 
 
@@ -258,19 +258,19 @@ Two major question related to kernel class(mention: kernel class is the subclass
          1. tower of abstractions for,
          2. what's the data structure we are using to represent current class?
       2. The other is the level directly below the level for the new kernel class you are creating • See the interfaces for the types of the variables you are using to represent a value of the new type\
-         1. ![image-20220924220257536](/Users/jacksonchen/Library/Application Support/typora-user-images/image-20220924220257536.png)
+         1. ![image-20220924220257536](https://raw.githubusercontent.com/Sma1lboy/CSE2231/main/Assists/imgs/image-20220924220257536.png)
             1. client view: See the kernel interface for a description of what the software behaves like, what the client sees.
                1. This is **abstract state space**: the set of all possible **math model** values as **seen by a client**.
             2. implementer view: See the kernel class for a description of how the software achieves its behavior. 
                1. This is the **concrete state space**: the set of all possible math model values of the **data representation**.
-         2. ![image-20220924220307843](/Users/jacksonchen/Library/Application Support/typora-user-images/image-20220924220307843.png)
+         2. ![image-20220924220307843](https://raw.githubusercontent.com/Sma1lboy/CSE2231/main/Assists/imgs/image-20220924220307843.png)
 2. What **algorithms** should be used to manipulate that data representation to implement the contracts of the kernel methods?
    1. [kernel 3][ppt_kernel3] Restrict your attention to the **states** just before and just after a method call
    2. which leads to a device called a **commutative diagram**
-   3. ![image-20220925202936404](/Users/jacksonchen/Library/Application Support/typora-user-images/image-20220925202936404.png)
+   3. ![image-20220925202936404](https://raw.githubusercontent.com/Sma1lboy/CSE2231/main/Assists/imgs/image-20220925202936404.png)
       1. top arrow: **abstract transition**: for each state **before** the call, where it might **end up** according to the **method’s contract**.
       2. bottom arrow: This is the **concrete transition**: for each state before the call, where it might end up according to the **method’s body**.
-   4. ![image-20220925203458562](/Users/jacksonchen/Library/Application Support/typora-user-images/image-20220925203458562.png)
+   4. ![image-20220925203458562](https://raw.githubusercontent.com/Sma1lboy/CSE2231/main/Assists/imgs/image-20220925203458562.png)
    5. Correctness
       1. The **kernel class** **correctly implements the kernel interface** if and only if, for **every method** and for every legal input state for that method, the method body (over-thenup) **always results in a state that satisfies the method contract** (up-then-over)
 
@@ -286,19 +286,19 @@ wo key design decisions that need to be recorded in (Javadoc) comments:
 
 ### Commutative Diagram
 
-![](/Users/jacksonchen/Library/Application Support/typora-user-images/image-20220925204119437.png)
+![](https://raw.githubusercontent.com/Sma1lboy/CSE2231/main/Assists/imgs/image-20220925204119437.png)
 
-![image-20220925204416241](/Users/jacksonchen/Library/Application Support/typora-user-images/image-20220925204416241.png)
+![image-20220925204416241](https://raw.githubusercontent.com/Sma1lboy/CSE2231/main/Assists/imgs/image-20220925204416241.png)
 
-![image-20220925204432622](/Users/jacksonchen/Library/Application Support/typora-user-images/image-20220925204432622.png)
+![image-20220925204432622](https://raw.githubusercontent.com/Sma1lboy/CSE2231/main/Assists/imgs/image-20220925204432622.png)
 
-![image-20220925204544308](/Users/jacksonchen/Library/Application Support/typora-user-images/image-20220925204544308.png)
+![image-20220925204544308](https://raw.githubusercontent.com/Sma1lboy/CSE2231/main/Assists/imgs/image-20220925204544308.png)
 
-![image-20220925204633447](/Users/jacksonchen/Library/Application Support/typora-user-images/image-20220925204633447.png)
+![image-20220925204633447](https://raw.githubusercontent.com/Sma1lboy/CSE2231/main/Assists/imgs/image-20220925204633447.png)
 
 Like this one
 
-![image-20220925205116685](/Users/jacksonchen/Library/Application Support/typora-user-images/image-20220925205116685.png)
+![image-20220925205116685](https://raw.githubusercontent.com/Sma1lboy/CSE2231/main/Assists/imgs/image-20220925205116685.png)
 
 The **representation invariant** **characterizes the values that the data representation** (instance variables) **might have at the end of each kernel method body, including the constructor(s)**
 
@@ -417,17 +417,17 @@ A binary tree is a BST whenever the arrangement of node labels satisfies these t
 
 Binary Tree:
 
-![image-20220925231059897](/Users/jacksonchen/Library/Application Support/typora-user-images/image-20220925231059897.png)
+![image-20220925231059897](https://raw.githubusercontent.com/Sma1lboy/CSE2231/main/Assists/imgs/image-20220925231059897.png)
 
 Binary Search Tree:
 
-![image-20220925231141223](/Users/jacksonchen/Library/Application Support/typora-user-images/image-20220925231141223.png)
+![image-20220925231141223](https://raw.githubusercontent.com/Sma1lboy/CSE2231/main/Assists/imgs/image-20220925231141223.png)
 
 # SortingMachine (have to look)
 
 The SortingMachine component family allows you to add elements of type T to a collection of such elements, and then to remove them one at a time in sorted order according to a client-supplied ordering
 
-![image-20220925233937355](/Users/jacksonchen/Library/Application Support/typora-user-images/image-20220925233937355.png)
+![image-20220925233937355](https://raw.githubusercontent.com/Sma1lboy/CSE2231/main/Assists/imgs/image-20220925233937355.png)
 
 #### Time based vs Values based
 
