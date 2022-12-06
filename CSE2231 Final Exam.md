@@ -165,5 +165,18 @@ Views for Map:
 -  – Values: Collection <T> values() 
 - – Pairs: Set<Map.Entry<K,V>> entrySet()
 
+### View "Backed By" Collection
+
+A view is **backed by the underlying** collection, which means that **if the view is modified** then the underlying (“backing”) **collection is also modified**, and vice versa
+
+### Could remove Cause Trouble?
+
+Could the optional remove method **not be supported** by the object type of m.values()?
+
+Yes! **BUT**
+
+- Yes! But only when the backing Map does not support remove(). Otherwise, it is supported because the informal Javadoc for the values method says: “The collection supports element removal, which removes the corresponding mapping from the map, via the Iterator.remove, Collection.remove, removeAll, retainAll and clear operations. It does not support the add or addAll operations
+- Which means the remove method come from 
+
 
 
