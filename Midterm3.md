@@ -38,7 +38,7 @@ most powerful interface
 
 ### Notice there is Circularity 
 
-![image-20221206141100229](/Users/jacksonchen/Library/Application Support/typora-user-images/image-20221206141100229.png)
+![image-20221206141100229](./Assists/imgs/image-20221206141100229.png)
 
 Java permit the circularity because
 
