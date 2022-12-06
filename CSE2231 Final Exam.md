@@ -231,7 +231,7 @@ At same time, method in java.io throw exception under certain circumstancesstanc
 
   - So it wrap System.in(a byte input stream) into a **char stream reader (char input stream)**
 
-  <img src="/Users/jacksonchen/Documents/Github/CSE2231/Assists/imgs/image-20221206164748288.png" alt="image-20221206164748288" style="zoom:33%;" />
+  <img src="./Assists/imgs/image-20221206164748288.png" alt="image-20221206164748288" style="zoom:33%;" />
 
 **BufferedReader**
 
