@@ -1,4 +1,4 @@
-# Mathematica models
+# Mathematic models
 
 Each Variable in the **program has a type** ("program type")
 
