@@ -31,7 +31,7 @@ A heap can be used to represent the values in a SortingMachine
 
 ​	means the entries of a collection (with a string model) may be accessed in increasing order of position by accessing the “next” entry in the collection
 
-### ![image-20221105181809182](/Users/jacksonchen/Library/Application Support/typora-user-images/image-20221105181809182.png)
+### ![image-20221105181809182](./Assists/imgs/image-20221105181809182.png)
 
 #### Dynamic Can Support Fast Sequential Access
 
@@ -110,7 +110,7 @@ An abstract syntax tree (AST) is a tree model of an **entire program** or a cert
 
 ## BL Compiler Structure
 
-![image-20221106155956275](/Users/jacksonchen/Library/Application Support/typora-user-images/image-20221106155956275.png)
+![image-20221106155956275](./Assists/imgs/image-20221106155956275.png)
 
 
 
@@ -219,7 +219,7 @@ type ProgramKernel is modeled by PROGRAM_MODEL
 
 ## Context-Free Grammars
 
-![image-20221106165755417](/Users/jacksonchen/Library/Application Support/typora-user-images/image-20221106165755417.png)
+![image-20221106165755417](./Assists/imgs/image-20221106165755417.png)
 
 ### Grammar *(question ask prof)
 
@@ -235,17 +235,17 @@ If L is a language, then mathematically it is a set of string of Σ
 
 ### CFG symbol def
 
-<img src="/Users/jacksonchen/Library/Application Support/typora-user-images/image-20221106174055318.png" alt="image-20221106174055318" style="zoom:50%;" />
+<img src="./Assists/imgs/image-20221106174055318.png" alt="image-20221106174055318" style="zoom:50%;" />
 
-<img src="/Users/jacksonchen/Library/Application Support/typora-user-images/image-20221106172519616.png" alt="image-20221106172519616" style="zoom:50%;" />
+<img src="./Assists/imgs/image-20221106172519616.png" alt="image-20221106172519616" style="zoom:50%;" />
 
-<img src="/Users/jacksonchen/Library/Application Support/typora-user-images/image-20221106172538873.png" alt="image-20221106172538873" style="zoom:50%;" />
+<img src="./Assists/imgs/image-20221106172538873.png" alt="image-20221106172538873" style="zoom:50%;" />
 
-<img src="/Users/jacksonchen/Library/Application Support/typora-user-images/image-20221106173126401.png" alt="image-20221106173126401" style="zoom:50%;" />
+<img src="./Assists/imgs/image-20221106173126401.png" alt="image-20221106173126401" style="zoom:50%;" />
 
-![image-20221106173142547](/Users/jacksonchen/Library/Application Support/typora-user-images/image-20221106173142547.png)
+![image-20221106173142547](./Assists/imgs/image-20221106173142547.png)
 
-![image-20221106173216980](/Users/jacksonchen/Library/Application Support/typora-user-images/image-20221106173216980.png)
+![image-20221106173216980](./Assists/imgs/image-20221106173216980.png)
 
 ### Drivations
 
@@ -304,7 +304,7 @@ last step of code compling
 
 #### Time Lines of Execution
 
-![image-20221106183407106](/Users/jacksonchen/Library/Application Support/typora-user-images/image-20221106183407106.png)
+![image-20221106183407106](./Assists/imgs/image-20221106183407106.png)
 
 ### Code Generation
 
@@ -377,4 +377,4 @@ Handling Statement as table with compile counter
 
 HW 30***
 
-![image-20221107170530229](/Users/jacksonchen/Library/Application Support/typora-user-images/image-20221107170530229.png)
+![image-20221107170530229](./Assists/imgs/image-20221107170530229.png)
