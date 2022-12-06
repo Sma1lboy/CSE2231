@@ -178,5 +178,192 @@ Yes! **BUT**
 - Yes! But only when the backing Map does not support remove(). Otherwise, it is supported because the informal Javadoc for the values method says: “The collection supports element removal, which removes the corresponding mapping from the map, via the Iterator.remove, Collection.remove, removeAll, retainAll and clear operations. It does not support the add or addAll operations
 - Which means the remove method come from 
 
+## Using Iterators
+
+### JCF Iterator Rule
+
+When **iterating over** a **collection** with an iterator (explicitly or implicitly with a for‐each loop), **do not call any methods on the collection** and **do not change the value of any of the elements** of the collection (or the collection itself)
+
+​	The behavior of an iterator is unspecified if the underlying collection is modified while the iteration is in progress in any way other than by calling the iterator’s remove method.
+
+## Java Input/Output
+
+### I/O Streams
+
+- An **input/output stream** is a (conceptually not necessarily finite) series of data items
+  - An **input stream** is a “flow” of data items from a **source** to a program
+    - The program **reads** from the source (or from the stream)
+
+- An **output stream** is a “flow” of data items from a program to a destination
+  - The program **writes** to the destination (or to the stream)
+
+### Input Streams
+
+Note:**Source** may be the **keyboard**, a file on disk, **a physical device**, **another program**, even an **array** or **String** in the same program.
+
+### Output Streams
+
+**Destination** may be the **console window**, **a file** on disk, a physical device, another program, even an array or **String** in the same program.
 
 
+
+### Input with keyboard
+
+```java
+public static void main(String[] args) throws IOException {
+    BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
+    String s = input.readLine();
+    ...
+    input.close();
+}
+
+```
+
+At this point, we want to using the keyboard input be source, but the, System.in is a **byte stream**, so we have to **wrap** it.
+
+At same time, method in java.io throw exception under certain circumstancesstances, and you need **catch** them
+
+​	either throw exception in the **method header** or **using try-catch**
+
+**InputStreamReader**
+
+- An InputStreamReader is  bridge **from byte streams to character streams** It reads bytes and decodes them into characters using a specified charset (talk later). 
+
+  - So it wrap System.in(a byte input stream) into a **char stream reader (char input stream)**
+
+  <img src="/Users/jacksonchen/Documents/Github/CSE2231/Assists/imgs/image-20221206164748288.png" alt="image-20221206164748288" style="zoom:33%;" />
+
+**BufferedReader**
+
+- An BufferedReader **reads text from a character-input stream**, buffering characters so as to provide for the efficient reading of characters, arrays, and lines.
+
+That's why we need three different class here.... so messssssss
+
+```java
+new BufferedReader(new InputStreamReader(System.in))
+```
+
+This technique of slightly extending features or **capabilities of an object** by **wrapping** it **inside** **another object** is a popular object-oriented design pattern called the **decorator pattern.**
+
+### An Alternative input with keyboard
+
+using the Class from `java.util.Scanner`
+
+e.g
+
+```java
+public static void main(String[] args) {
+    Scanner input = new Scanner(System.in);
+    String s = input.nextLine();
+    ...
+    input.close();
+}
+```
+
+Note: the wraping Class to help people read from keyboard, mention that method already wrapped for u so call readLine() instead call nextLine()
+
+### Input from File
+
+```java
+public static void main(String[] args) throws IOException {
+    BufferedReader input = new BufferedReader(new FileReader("data/test.txt"));
+    String s = input.readLine();
+    ...
+    input.close();
+}
+```
+
+### Console Output
+
+Ez to show
+
+`System.out.println("Hello world")`
+
+### File Output (java.io)
+
+```java
+public static void main(String[] args) throws IOException {
+  
+PrintWriter output = new PrintWriter(new BufferedWriter (new FileWriter("data/test.txt")));
+output.print("foo");
+output.println(" and bar");
+...
+output.close();
+}
+```
+
+- **FileWriter**
+
+  - FileWriter is used to writes text to character files using a default buffer size
+  - **FileWriter is meant for writing streams of characters** 
+    - It's a **character output stream** (Talk about later what's the diff between char stream and byte stream)
+
+- **BufferedWriter**
+
+  - An BufferedWriter **writes text to a character-output stream**, buffering characters so as to provide for the efficient writing of single characters, arrays, and strings.
+    - It's a text output stream
+
+- **PrintWriter**
+
+  - An PrintWriter **prints formatted representations** of objects **to** a text-output stream
+
+  - For the foramtted, that's why we want to use PrintWriter
+
+  - It's disgusting to directly using the method form BufferedWritter, we need some util format method! which come from PrintWriter
+
+  - (not from this course)Note: ofc you can directly use the BufferedWriter, but remember to close writer
+
+    ```java
+    BufferedWriter writer = new BufferedWriter(new FileWriter("asdasd.txt"));
+    writer.write("Hello World");
+    writer.close();
+    ```
+
+    It's **inconvient** to directly using BufferedWriter to wrap line :(
+
+### IOException
+
+#### A number of java.io constructors and methods might throw (raise) an IOException
+
+Examples:
+
+​	files to be used as sources destinations may not exist  may not be readable and/or writeable by the user of the program etc.
+
+### Standard Stream
+
+The utility class System in java.lang declares three standard streams:
+
+- System.in
+- System.out
+- System.err
+
+You do not declare, open, or close these streams; but you can always use them without worrying about exceptions (Java already declare for you)
+
+### Byte and Character Streams
+
+note: I don't think they gonna let u write code about byte stream
+
+Java has two categories of streams:
+
+- Byte streams are streams of 8-bit bytes 
+  -  This is a kind of low-level I/O that you rarely need
+- Character streams are streams of Unicode characters
+  - This is preferred for text I/O because it accounts for the “local” character set and supports **internationalization** with little additional effort
+
+Note : **Best practice** is to use character streams with textual I/O
+
+### Buffered Streams
+
+Buffered streams **minimize** **disk access** for reading/writing files, and generally have **performance** **advantages** over unbuffered streams
+
+Best practice is to “wrap” input and output character streams to create buffered versions
+
+I already show how it works and java standard description above
+
+### Files and Paths
+
+The File class (an original part of Java) and the Path interface (new in Java 1.7) allow you to manipulate directories and files and the “paths” to them in the file system, e.g.:
+
+- Check file existence and permissions, create files and set permissions, delete files, etc
+
+Note: just take a look 
