@@ -191,11 +191,11 @@ When **iterating over** a **collection** with an iterator (explicitly or implici
 ### I/O Streams
 
 - An **input/output stream** is a (conceptually not necessarily finite) series of data items
-  - An **input stream** is a “flow” of data items from a **source** to a program
-    - The program **reads** from the source (or from the stream)
+    - An **input stream** is a “flow” of data items from a **source** to a program
+        - The program **reads** from the source (or from the stream)
 
 - An **output stream** is a “flow” of data items from a program to a destination
-  - The program **writes** to the destination (or to the stream)
+    - The program **writes** to the destination (or to the stream)
 
 ### Input Streams
 
@@ -229,9 +229,9 @@ At same time, method in java.io throw exception under certain circumstancesstanc
 
 - An InputStreamReader is  bridge **from byte streams to character streams** It reads bytes and decodes them into characters using a specified charset (talk later). 
 
-  - So it wrap System.in(a byte input stream) into a **char stream reader (char input stream)**
+    - So it wrap System.in(a byte input stream) into a **char stream reader (char input stream)**
 
-  <img src="./Assists/imgs/image-20221206164748288.png" alt="image-20221206164748288" style="zoom:33%;" />
+    <img src="./Assists/imgs/image-20221206164748288.png" alt="image-20221206164748288" style="zoom:33%;" />
 
 **BufferedReader**
 
@@ -294,32 +294,32 @@ output.close();
 
 - **FileWriter**
 
-  - FileWriter is used to writes text to character files using a default buffer size
-  - **FileWriter is meant for writing streams of characters** 
-    - It's a **character output stream** (Talk about later what's the diff between char stream and byte stream)
+    - FileWriter is used to writes text to character files using a default buffer size
+    - **FileWriter is meant for writing streams of characters** 
+        - It's a **character output stream** (Talk about later what's the diff between char stream and byte stream)
 
 - **BufferedWriter**
 
-  - An BufferedWriter **writes text to a character-output stream**, buffering characters so as to provide for the efficient writing of single characters, arrays, and strings.
-    - It's a text output stream
+    - An BufferedWriter **writes text to a character-output stream**, buffering characters so as to provide for the efficient writing of single characters, arrays, and strings.
+        - It's a text output stream
 
 - **PrintWriter**
 
-  - An PrintWriter **prints formatted representations** of objects **to** a text-output stream
+    - An PrintWriter **prints formatted representations** of objects **to** a text-output stream
 
-  - For the foramtted, that's why we want to use PrintWriter
+    - For the foramtted, that's why we want to use PrintWriter
 
-  - It's disgusting to directly using the method form BufferedWritter, we need some util format method! which come from PrintWriter
+    - It's disgusting to directly using the method form BufferedWritter, we need some util format method! which come from PrintWriter
 
-  - (not from this course)Note: ofc you can directly use the BufferedWriter, but remember to close writer
+    - (not from this course)Note: ofc you can directly use the BufferedWriter, but remember to close writer
 
-    ```java
-    BufferedWriter writer = new BufferedWriter(new FileWriter("asdasd.txt"));
-    writer.write("Hello World");
-    writer.close();
-    ```
+        ```java
+        BufferedWriter writer = new BufferedWriter(new FileWriter("asdasd.txt"));
+        writer.write("Hello World");
+        writer.close();
+        ```
 
-    It's **inconvient** to directly using BufferedWriter to wrap line :(
+        It's **inconvient** to directly using BufferedWriter to wrap line :( 
 
 ### IOException
 
@@ -346,9 +346,9 @@ note: I don't think they gonna let u write code about byte stream
 Java has two categories of streams:
 
 - Byte streams are streams of 8-bit bytes 
-  -  This is a kind of low-level I/O that you rarely need
+    -  This is a kind of low-level I/O that you rarely need
 - Character streams are streams of Unicode characters
-  - This is preferred for text I/O because it accounts for the “local” character set and supports **internationalization** with little additional effort
+    - This is preferred for text I/O because it accounts for the “local” character set and supports **internationalization** with little additional effort
 
 Note : **Best practice** is to use character streams with textual I/O
 
@@ -367,3 +367,204 @@ The File class (an original part of Java) and the Path interface (new in Java 1.
 - Check file existence and permissions, create files and set permissions, delete files, etc
 
 Note: just take a look 
+
+## Java Loose Ends
+
+Few Java issues introduced earlier deserve a more in-depth treatment:
+
+-   – Try-Catch and Exceptions 
+-   – Members (static vs. instance)
+-    – Nested interfaces and classes
+-    – Access modifiers – “Final”
+
+### Exceptions
+
+An exception indicates a **problem** with an application that **entails** (in Java) **a dramatic change of control flow**
+
+Vocabulary: Exceptions (and Errors) are
+
+-   “thrown” by a component implementation
+-   “caught” by a client
+
+### Syntax of Try-Catch
+
+just `try{}catch(SOME_EXCEPTION e) {}` the ez one
+
+you can keep catch different exception, e.g. 
+
+```java
+try {
+		statements
+} catch(exceptionType1 identifier1) {
+		handler for type1
+} catch(exceptionType2 identifier2) {
+		handler for type2
+}
+```
+
+ If **nothing** is thrown during execution of the statements in the try block, try block finishes successfully and catch block will ignored, then the program keep going
+
+if something is thrown exception:
+
+1.   the rest of try block code is skipped
+2.   The catch clauses are **examined** **top to bottom** for the first **matching catch**
+3.   If an appropriate catch clause is found: 
+     1.    The body of the catch clause is executed
+     2.   The remaining catch clauses are skipped
+4.   If no such catch clause is found:
+     1.   The exception is thrown to the **outer block**, which is either
+          1.   A try block (that potentially handles it, in the same manner)	
+          2.   A method body (resulting in it being thrown to its client)
+
+**Best practice** suggests exceptions should be **reserved for unexpected** situations:
+
+-   Problems external to the application
+    -   there is a hardware problem with a disk drive
+-   Resource exhaustion
+    -   (out of memo)
+-   Problems that cannot be handled with checkable preconditions in contracts
+    -   Example: a file does not exist—because it has been deleted after its existence has already been “confirmed”.
+
+### Hierarchy of Theowable 
+
+The diagram of Throwable
+
+### ![image-20221207000346698](/Users/jacksonchen/Documents/Github/CSE2231/Assists/imgs/image-20221207000346698.png) 
+
+The **Throwable** class is the **superclass** of **all errors and exceptions in the Java language**. Only objects that are instances of this class (or one of its subclasses) are thrown by the Java Virtual Machine or can be thrown by the Java throw statement.
+
+### Unrecoverble and recoverble error
+
+Note: An **unrecoverable** error is a type of error that **cannot be fixed** or resolved. This means that the **system or program encountering the error** will be unable to continue functioning properly, and may need to be restarted or shut down completely. A **recoverable** error, on the other hand, **is an error that can be fixed** or resolved **without disrupting the operation of the system or program.** In most cases, a recoverable error will allow the system or program to continue running, but it may require some corrective action on the part of the user or the system itself to fix the problem.
+
+**In OSU**
+
+“**Unrecoverable**”: hardware, JVM, or application error (e.g., “out of memory)
+
+​	You have to restart computer or change ur hardware
+
+“**Recoverable**”: application problem (e.g., “file not found”)
+
+​	You can just reenter the file address
+
+### **Few Error and exception**
+
+![image-20221207001418385](/Users/jacksonchen/Documents/Github/CSE2231/Assists/imgs/image-20221207001418385.png)
+
+### Unchecked vs. Checked
+
+-   **Unchecked** exceptions are:
+
+    -   – **Error** and its subclasses
+    -   **RuntimeException** and its subclasses
+
+-   The rest are **checked** exceptions
+
+    -   “Checked” means that the compiler checks that a method whose body contains a statement that might throw the exception either **catches** it, or explicitly “propagates it up the call chain” by declaring that it also **throws** the exception
+
+        **For example:** if you using **BufferedReader**, you have **either** **catch** or **throws**, because BufferedReader may cause IOException
+
+### Members
+
+A class may have different kinds of members:
+
+1.   Variables/fields/data members
+2.   Constructors
+3.   Methods 
+4.   Nested classes
+
+ All except constructors may be either **static members** or **instance members*
+
+Note: **static members** of  a class also call **class members**(There are a lot different way to call it, just do whatever you want, **static field** or **static variable,** or just **static members**, or just **class members**)
+
+### Static vs. Instance Variables
+
+ the static method or static member's value are share to current program when it running 
+
+Here is the OSU explain:
+
+-   At run-time, a Java program has separate representations for:
+    -   All **static variables** for each **class** C
+    -   All instance variables for each **instance** of C, i.e., for each object with dynamic type C
+-   Bytecode for C constructors, methods, and nested classes is part of the run-time representation of class C
+
+### Static Initialization Blocks
+
+To initialize static variables in a class, you may write a static initialization block that looks like this:
+
+```java
+static {
+	// Code to initialize static variables
+}
+```
+
+This code is automatically executed when the **class is loaded**, i.e., once at the very beginning of program execution
+
+Note: as I said, "it will initial **at the start of the execution**"
+
+### Nested Interfaces
+
+An interface may be nested within another interface
+
+-   Example (from OSU CSE components)
+    -   Map.Pair<K,V>
+    -   Map.Entry<K,V>
+
+### Nested Classes
+
+A class that is nested as a member of another class may be:
+
+-   A static nested class
+
+    -   A static nested class **does not have access** to instance members of its enclosing class
+        -   Effectively, it’s a top-level class declared inside another class since it “logically belongs”
+        -    Example (from OSU CSE components): MapSecondary.SimplePair
+        -   Example (from Java libraries): AbstractMap.SimpleEntry<K,V>
+
+-   An **instance nested class**, which is called an **inner class**
+
+    -   the Node we written before, right?
+
+    -   Each instance of an inner class belongs to an instance of its enclosing class
+
+    -   Has access to generic parameters, variables, methods, etc., of its enclosing instance
+
+    -   Examples (from OSU CSE components): 
+
+        -   Stack2.Node
+
+        -    Stack2.Stack2Iterator
+
+            <img src="/Users/jacksonchen/Documents/Github/CSE2231/Assists/imgs/image-20221207003250895.png" alt="image-20221207003250895" style="zoom:50%;" />
+
+### Access Modifiers
+
+There are **four access modifiers** in Java
+
+-   public 
+    -   (Only public and “package private” apply to top-level units declare interface and classes, interface members can be public (the default) or private (not used in OSU components); class members can be any of the four.)
+        -   Note: for the member, we talking about **variable** rather than method.
+    -   A **top-level unit** declared **public** is **accessible** from **anywhere**
+    -   A **member** declared **public** is **accessible** from **anywhere too**
+        -   So long as the top-level unit it’s in is also accessible, which henceforth goes without saying
+-   protected
+    -   A top-level unit declared without any access modifier is **accessible** from **anywhere** **within the same package**
+        -   The `protected` keyword is an access modifier used for attributes, methods and constructors, making them accessible in the same package and subclasses.
+    -   A class member declared without any access modifier is **accessible** from a**nywhere within the same package**
+        -   Everyone could change it into same pack by adding this as its first line by : package NAME; ()
+-   default(package private)
+-   privarte
+    -   A class (or interface) member declared private is **accessible** **only** from within the class (or interface) **containing** the **private member**
+    -   **Best practice** is to make all members in **interfaces** **public** and all **static and instance variables in classes private**, and to offer public methods with which clients may indirectly manipulate their values
+    -   **An exception**: **constants**, which are normally public static final variables 
+
+![image-20221207004412176](/Users/jacksonchen/Documents/Github/CSE2231/Assists/imgs/image-20221207004412176.png)
+
+### Final
+
+-   A class declared final may not be extended 
+-   A method declared final may not be overridden 
+-   A variable declared final may not be modified once it is given a value
+    -   Which is why it is often called a “constant” 
+        -   Be careful! For **a reference variable** (or parameter): the **reference value** **cannot** be **modified**, but the **object value can be modified**
+-   A formal parameter declared final may not be modified inside the method
