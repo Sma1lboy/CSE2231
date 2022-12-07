@@ -535,7 +535,7 @@ A class that is nested as a member of another class may be:
 
         -    Stack2.Stack2Iterator
 
-            <img src="Assists/imgs/image-20221207003250895.png" alt="image-20221207003250895" style="zoom:50%;" />
+            <img src="Assists/imgs/image-20221207003250895.png" alt="image-20221207003250895"  />
 
 ### Access Modifiers
 
