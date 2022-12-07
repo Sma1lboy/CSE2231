@@ -429,7 +429,7 @@ if something is thrown exception:
 
 The diagram of Throwable
 
-### ![image-20221207000346698](/Users/jacksonchen/Documents/Github/CSE2231/Assists/imgs/image-20221207000346698.png) 
+### ![image-20221207000346698](Assists/imgs/image-20221207000346698.png) 
 
 The **Throwable** class is the **superclass** of **all errors and exceptions in the Java language**. Only objects that are instances of this class (or one of its subclasses) are thrown by the Java Virtual Machine or can be thrown by the Java throw statement.
 
@@ -449,7 +449,7 @@ Note: An **unrecoverable** error is a type of error that **cannot be fixed** or 
 
 ### **Few Error and exception**
 
-![image-20221207001418385](/Users/jacksonchen/Documents/Github/CSE2231/Assists/imgs/image-20221207001418385.png)
+![image-20221207001418385](Assists/imgs/image-20221207001418385.png)
 
 ### Unchecked vs. Checked
 
@@ -535,7 +535,7 @@ A class that is nested as a member of another class may be:
 
         -    Stack2.Stack2Iterator
 
-            <img src="/Users/jacksonchen/Documents/Github/CSE2231/Assists/imgs/image-20221207003250895.png" alt="image-20221207003250895" style="zoom:50%;" />
+            <img src="Assists/imgs/image-20221207003250895.png" alt="image-20221207003250895" style="zoom:50%;" />
 
 ### Access Modifiers
 
