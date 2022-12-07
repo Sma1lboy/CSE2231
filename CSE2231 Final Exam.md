@@ -520,22 +520,17 @@ A class that is nested as a member of another class may be:
         -   Effectively, it’s a top-level class declared inside another class since it “logically belongs”
         -    Example (from OSU CSE components): MapSecondary.SimplePair
         -   Example (from Java libraries): AbstractMap.SimpleEntry<K,V>
-
 -   An **instance nested class**, which is called an **inner class**
 
     -   the Node we written before, right?
-
     -   Each instance of an inner class belongs to an instance of its enclosing class
-
     -   Has access to generic parameters, variables, methods, etc., of its enclosing instance
-
     -   Examples (from OSU CSE components): 
-
+    
         -   Stack2.Node
+    -   Stack2.Stack2Iterator
 
-        -    Stack2.Stack2Iterator
-
-            <img src="Assists/imgs/image-20221207003250895.png" alt="image-20221207003250895"  />
+![image-20221207005422721](Assists/imgs/image-20221207005422721.png)
 
 ### Access Modifiers
 
