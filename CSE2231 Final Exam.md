@@ -558,7 +558,7 @@ There are **four access modifiers** in Java
     -   **Best practice** is to make all members in **interfaces** **public** and all **static and instance variables in classes private**, and to offer public methods with which clients may indirectly manipulate their values
     -   **An exception**: **constants**, which are normally public static final variables 
 
-![image-20221207004412176](/Users/jacksonchen/Documents/Github/CSE2231/Assists/imgs/image-20221207004412176.png)
+![image-20221207004941475](Assists/imgs/image-20221207004941475.png)
 
 ### Final
 
